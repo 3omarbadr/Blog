@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<title>Omar Blog</title>
+
+<link rel="stylesheet" href="/app.css">
+
+<body>
+    <article>
+
+        <?= $post; ?>
+
+    </article>
+
+    <a href="/">Go Back</a>
+
+</body>
