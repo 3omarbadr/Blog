@@ -15,14 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest();
-        if(request('search')){
-            $posts
-            ->where('title', 'like', '%' . request('search') . '%')
-            ->orWhere('body', 'like', '%' . request('search') . '%');
-        }
         return view('posts', [
-            'posts' => $posts->get(),
+            'posts' => Post::latest()->filter(request(['search']))->get(),
             'categories' => Category::all()
         ]);
     }
@@ -54,9 +48,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('post', [
+            'post' => $post
+        ]);
     }
 
     /**
