@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index', [
-            'posts' => Post::latest()->
-            filter(request(['search', 'category', 'author']))
-            ->paginate(7)->withQueryString()
-        ]);
+        //
     }
 
     /**
@@ -29,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('register.create');
     }
 
     /**
@@ -40,7 +35,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $attributes = request()->validate([
+            'name' => ['required','max:255'],
+            'username' => ['required','max:255','min:3'],
+            'email' => ['required','email','max:255'],
+            'password' => ['required','min:7','max:255'],
+        ]);
+
+        User::create($attributes);
+
+        return redirect('/');
     }
 
     /**
@@ -49,11 +53,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        return view('posts.show', [
-            'post' => $post
-        ]);
+        //
     }
 
     /**
