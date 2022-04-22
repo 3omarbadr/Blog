@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class SessionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +23,7 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        return view('register.create');
+        //
     }
 
     /**
@@ -35,18 +34,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        $attributes = request()->validate([
-            'name' => ['required', 'max:255'],
-            'username' => ['required', 'min:3', 'max:255', 'unique:users,username'],
-            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'min:7', 'max:255'],
-        ]);
-
-        $user =  User::create($attributes);
-
-        auth()->login($user);
-
-        return redirect('/')->with('success', 'Your account hase been created successfully.');;
+        //
     }
 
     /**
@@ -89,8 +77,10 @@ class RegisterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        auth()->logout();
+
+        return redirect('/')->with('success', 'Goodbye!');
     }
 }
