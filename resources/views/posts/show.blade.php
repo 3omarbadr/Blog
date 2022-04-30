@@ -51,6 +51,18 @@
                            {!!$post->body!!}
                         </div>
                     </div>
+
+                    <section class="flex">
+                        <div>
+                            <img src="https://i.pravatar.cc/100" alt="">
+                        </div>
+                        <div>
+                            <header>
+                                <h3 class="font-bold">Omar Badr</h3>
+                                <p class="text-xs">Posted 3 days ago</p>
+                            </header>
+                        </div>
+                    </section>
                 </article>
             </main>
         </section>
