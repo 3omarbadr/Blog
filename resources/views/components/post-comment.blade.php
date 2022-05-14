@@ -11,8 +11,7 @@ border border-gray-200 rounded-xl space-x-4">
         </header>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae voluptatem
-            molestiae iure voluptates sequi asperiores, a eos dolor. Amet quod molestias deserunt
-            exercitationem quisquam alias nihil aperiam provident eveniet vero!
+            molestiae iure voluptates sequi asperiores, a eos dolor. 
         </p>
     </div>
 </article>
