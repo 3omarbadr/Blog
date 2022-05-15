@@ -10,8 +10,7 @@ border border-gray-200 rounded-xl space-x-4">
             <p class="text-xs">Posted 3 days ago</p>
         </header>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae voluptatem
-            molestiae iure voluptates sequi asperiores, a eos dolor. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
         </p>
     </div>
 </article>
