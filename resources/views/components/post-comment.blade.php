@@ -1,6 +1,6 @@
 
 @props(['comment'])
-<article class="flex bg-gray-100 p-6 
+<article class="flex bg-gray-50 p-6 
 border border-gray-200 rounded-xl space-x-4">
 
     <div class="flex-shrink-0">
