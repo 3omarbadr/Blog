@@ -30,3 +30,5 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('test', [Test::class, 'removeDuplicates']);
+
+Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');
