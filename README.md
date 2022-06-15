@@ -5,7 +5,7 @@
 First clone this repository, install the dependencies, and setup your .env file.
 
 ```
-git clone git@github.com:3omarbadr/Blog.gitg
+git clone git@github.com:3omarbadr/Blog.git
 composer install
 cp .env.example .env
 ```
