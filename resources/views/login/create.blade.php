@@ -5,41 +5,10 @@
 
             <form method="POST" action="/login" class="mt-10">
                 @csrf
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="email">
-                        Email
-                    </label>
+                <x-form.input name="email" type="email" autocomplete="username" />
+                <x-form.input name="password" type="password" autocomplete="new-password" />
 
-                    <input class="border border-gray-400 p-2 w-full" type="text" name="email" id="email"
-                        value="{{old('email')}}" required>
-
-                    @error('email')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-                </div>
-
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="password">
-                        Passowrd
-                    </label>
-
-                    <input class="border border-gray-400 p-2 w-full" type="password" name="password" id="password"
-                        required>
-
-                    @error('password')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-
-                </div>
-
-
-                <div class="mb-6">
-
-                    <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">
-                       Log In
-                    </button>
-
-                </div>
+                <x-form.button>Log In</x-form.button>
             </form>
         </main>
     </section>
