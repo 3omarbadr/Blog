@@ -2,83 +2,22 @@
     <section class="py-8 max-w-md mx-auto">
 
         <h1 class="text-lg font-bold mb-4">
-             Publish New Post
+            Publish New Post
         </h1>
         <div class="border border-gray-200 p-6 rounded-xl ">
 
             <form method="POST" action="/admin/posts" enctype="multipart/form-data">
                 @csrf
 
-                <div class="mb-5">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="title">
-                        Title
-                    </label>
-                    <input class="border border-gray-408 p-2 w-full" type="text" name="title" id="title"
-                        value="{{old('title')}}" required>
-
-                    @error('title')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
-                    @enderror
-
-                </div>
-
-                <div class="mb-5">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="slug">
-                        Slug
-                    </label>
-                    <input class="border border-gray-408 p-2 w-full" type="text" name="slug" id="slug"
-                        value="{{old('slug')}}" required>
-
-                    @error('slug')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
-                    @enderror
-
-                </div>
-
-                <div class="mb-5">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="thumbnail">
-                        Thumbnail
-                    </label>
-                    <input class="border border-gray-408 p-2 w-full" type="file" name="thumbnail" id="thumbnail"
-                        value="{{old('thumbnail')}}" required>
-
-                    @error('thumbnail')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
-                    @enderror
-
-                </div>
+                <x-form.input name="title"/>
+                <x-form.input name="slug"/>
+                <x-form.input name="thumbnail" type="file" />
+                <x-form.textarea name="excerpt" />
+                <x-form.textarea name="body" />
 
 
                 <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="excerpt">
-                        Excerpt
-                    </label>
-                    <textarea class="border border-gray-408 p-2 w-full" type="text" name="excerpt" id="excerpt"
-                        value="{{old('excerpt')}}" required></textarea>
-
-                    @error('excerpt')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
-                    @enderror
-
-                </div>
-
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="body">
-                        Body
-                    </label>
-                    <textarea class="border border-gray-408 p-2 w-full" type="text" name="body" id="body"
-                        value="{{old('body')}}" required></textarea>
-
-                    @error('body')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
-                    @enderror
-
-                </div>
-
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="category_id">
-                        Category
-                    </label>
+                   <x-form.label name="category"/>
                     <select name="category_id" id="category">
 
                         @foreach (\App\Models\Category::all() as $category)
@@ -88,12 +27,10 @@
                         @endforeach
                     </select>
 
-                    @error('category')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
-                    @enderror
+                 <x-form.error name="category"/>
 
                 </div>
-                <x-submit-button>Publish</x-submit-button>
+                <x-form.button>Publish</x-form.button>
             </form>
         </div>
     </section>
