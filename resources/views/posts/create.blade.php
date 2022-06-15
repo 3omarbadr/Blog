@@ -1,8 +1,12 @@
 <x-layout>
-    <section class="px-6 py-8">
-        <div class="border border-gray-200 p-6 rounded-xl max-w-sm mx-auto">
+    <section class="py-8 max-w-md mx-auto">
 
-            <form method="POST" action="/admin/posts">
+        <h1 class="text-lg font-bold mb-4">
+             Publish New Post
+        </h1>
+        <div class="border border-gray-200 p-6 rounded-xl ">
+
+            <form method="POST" action="/admin/posts" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-5">
@@ -30,6 +34,20 @@
                     @enderror
 
                 </div>
+
+                <div class="mb-5">
+                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="thumbnail">
+                        Thumbnail
+                    </label>
+                    <input class="border border-gray-408 p-2 w-full" type="file" name="thumbnail" id="thumbnail"
+                        value="{{old('thumbnail')}}" required>
+
+                    @error('thumbnail')
+                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                    @enderror
+
+                </div>
+
 
                 <div class="mb-6">
                     <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="excerpt">
@@ -65,7 +83,7 @@
 
                         @foreach (\App\Models\Category::all() as $category)
 
-                        <option value="{{$category->id}}" {{old('category_id') == $category->id ? 'selected' :
+                        <option value="{{$category->id}}" {{old('category_id')==$category->id ? 'selected' :
                             ''}}>{{ucwords($category->name)}}</option>
                         @endforeach
                     </select>
